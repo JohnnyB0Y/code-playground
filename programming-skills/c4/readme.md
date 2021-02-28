@@ -17,11 +17,15 @@
 然后将这些词插入到所创建的故事中。
 
 ##### 示例输出：
+
+```js
 Enter a noun: dog 
 Enter a verb: walk 
 Enter an adjective: blue 
 Enter an adverb: quickly
-Do you walk your blue dog quickly? That't hilarious!
+Do you walk your blue dog quickly?
+That'thilarious!
+```
 
 ##### 约束条件：
 - 在程序中使用一条输出语句。
