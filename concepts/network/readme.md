@@ -97,17 +97,15 @@ AES在处理初期会把明文数据切分成16个字节的小块并放入4x4的
 在这个过程中，每次传输的数据都会通过一个像MD5这样的函数来进行散列，但是在散列前，传输的数据会先主密钥最后的那128位数据段进行组合。这就是所谓的秘钥散列（keyed hashing），而这种情况下的这个128位数据段被称为MAC秘钥。通过使用秘钥散列可以有助于避免中间人攻击。攻击者若想要传输假冒数据给接收者，就需要使用MAC秘钥来生成一个可被接收者真正接受的散列码。
 由于散列码发生在加密之前，所以原始信息和散列码都会被加密。
 
+
+# Web 协议
+###### [ABNF 语法](https://www.ietf.org/rfc/rfc5234.txt)
 ###### 工具
 ```
 // 安装 telnet
 brew install telnet
 ```
 
-GET /wp-content/plugins/Pure-Highlightjs_1.0/assets/pure-highlight.css?ver=0.1.0 HTTP/1.1
-
-###### [ABNF 语法](https://www.ietf.org/rfc/rfc5234.txt)
-
-## Web 协议
 ###### 评估 Web 架构的七大关键属性
 - 性能 Performance：影响高可用的关键因素。
   - 网络性能 Network Performance
