@@ -108,8 +108,16 @@ GET /wp-content/plugins/Pure-Highlightjs_1.0/assets/pure-highlight.css?ver=0.1.0
 ###### [ABNF 语法](https://www.ietf.org/rfc/rfc5234.txt)
 
 ## Web 协议
-###### 七大关键属性 
+###### 评估 Web 架构的七大关键属性
 - 性能 Performance：影响高可用的关键因素。
+  - 网络性能 Network Performance
+    - Throughput 吞吐量：小于等于带宽 bandwidth；
+    - Overhead 开销：首次开销，每次开销；
+  - 用户感知到的性能 User-perceived Performance
+    - Latency 延迟：发起请求到接收到响应的时间；
+    - Completion 完成时间：完成一个应用动作所花费的时间；
+  - 网络效率 Network Efficiency
+    - 重用缓存、减少交互次数、数据传输距离更近、COD；
 - 可伸缩性 Scalability：支持部署可以互相交互的大量组件。
 - 简单性 Simplicity：易理解、易实现、易验证。
 - 可见性 Visiable：对两个组件的交互进行监视或者仲裁的能力。如缓存、分层设计等。
