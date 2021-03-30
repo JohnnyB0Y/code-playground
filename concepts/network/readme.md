@@ -129,3 +129,61 @@ GET /wp-content/plugins/Pure-Highlightjs_1.0/assets/pure-highlight.css?ver=0.1.0
   - 可定制性 Customizability：临时性、定制性地更改某一要素来提供服务，不对常规客户产生影响；
   - 可配置性 Configurability：应用部署后可通过修改配置提供新的功能；
   - 可重用性 Reusability：组件可以不作修改在其他应用中使用；
+
+###### 5种架构风格
+- 数据流风格 Data-flow Stles
+  - 优点：简单性、可进化性、可扩展性、可配置性、可重用性；
+  - 管道与过滤器 Pipe And Filter，PF
+    - 每个Filter 都有输入端和输出端，只能从输入端读取数据，处理后再从输出端产生数据；
+  - 统一接口的管道与过滤器 Uniform Pipe And Filter，UPF
+    - 在 PF 基础上增加了统一接口的约束，所有 Filter 过滤器必须具备相同的接口 Interface；
+- 复制风格 Replication Styles
+  - 优点：用户可察觉的性能、可伸缩性、网络效率、可靠性；
+  - 复制仓库 Replicated Repository，RR
+    - 多个进程提供相同的服务，通过反向代理对外提供集中服务；
+  - 缓存 $
+    - RR的变体，通过复制请求的结果，为后续请求复用；
+- 分层风格 Hierarchical Styles
+  - 优点：简单性、可进化性、可伸缩性；
+  - 客户端服务器 Client-Server，CS
+    - 由 Client 触发请求，Server 监听请求后产生响应，Client 一直等待接收响应后，会话结束；
+    - 分离关注点，隐藏细节。
+  - 分层系统 Layered System，LS
+    - 每一层为其之上的层服务，并使用在其之下的层所提供的服务，例如 TCP/IP；
+  - 分层客户端服务端 Layered Client-Server，LCS
+    - LS + CS，例如正向代理和反向代理，从空间上分为外部层与内部层；
+  - 无状态、客户端服务器 Client-Stateless-Server，CSS
+    - 基于 CS，服务器上不允许有 session state 会话状态；
+    - 提升了可见性、可伸缩性、可靠性，但重复数据导致降低网络性能；
+  - 缓存、无状态、客户端服务端 Client-Cache-Stateless-Server，C$SS
+    - 提升性能
+  - 分层、缓存、无状态、客户端服务端 Layered-Client-Cache-Stateless-Server，LC$SS
+    - 总和！
+- 移动代码风格 Mobile Code Styles
+  - 优点：可移植性、可扩展性、网络效率；
+  - 虚拟机 Virtual Machine，VM
+    - 分离指令与实现；
+  - 远程求值 Remote Evaluation，REV
+    - 基于 CS 的VM，将代码发送至服务器执行；
+  - 按需代码 Code on Demand，COD
+    - 服务器在响应中返回处理代码，在客户端执行；（JavaScript、CSS）
+    - 优秀的可扩展性和可配置性，提升用户可察觉性能和网络效率；
+  - 分层、按需代码、缓存、无状态、客户端服务器 Layered-Code-on-Demand-Client-Cache-Stateless-Server，LCODC$SS
+    - LC$SS + COD
+  - 移动代理 Mobile Agent，MA
+    - 相当于 REV + COD
+- 点对点风格 Peer-toPeer Styles
+  - 优点：可进化性、可重用性、可扩展性、可配置性；
+  - Event-based Integration，EBI
+    - 基于事件集成系统，如由 Kafka 这样的消息系统 + 分发订阅来消除耦合；
+    - 优秀的可重用性、可扩展性、可进化性；
+    - 缺乏可理解性；
+    - 由于消息广播等因素造成的消息风暴，可伸缩性差；
+  - [Chiron-2，C2](https://users.soe.ucsc.edu/~ejw/papers/c2-icse17.pdf)
+    - 相当于 EBI + LCS，控制了消息的方向
+  - Distributed Objects，DO
+    - 强调组件结对交互；
+  - Brokered Distributed Objects，BDO
+    - 引入名字解析组件来简化 DO，例如：CORBA；
+
+![avatar](./resource/rest.png)
