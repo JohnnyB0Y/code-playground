@@ -124,3 +124,8 @@ GET /wp-content/plugins/Pure-Highlightjs_1.0/assets/pure-highlight.css?ver=0.1.0
 - 可移植性 Portability：在不同的环境下运行的能力。
 - 可靠性 Reliability：出现部分故障时，对整体影响的程度。
 - 可修改性 Modifiability：对系统作出修改的难易程度，由可进化性、可定制性、可扩展性、可配置性、可重用性构成。
+  - 可进化性 Evolvability：一个组件独立升级而不影响其他组件；
+  - 可扩展性 Extensibility：向系统添加功能，而不影响到系统的其他部分；
+  - 可定制性 Customizability：临时性、定制性地更改某一要素来提供服务，不对常规客户产生影响；
+  - 可配置性 Configurability：应用部署后可通过修改配置提供新的功能；
+  - 可重用性 Reusability：组件可以不作修改在其他应用中使用；
