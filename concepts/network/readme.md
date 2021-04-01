@@ -104,6 +104,19 @@ AES在处理初期会把明文数据切分成16个字节的小块并放入4x4的
 ```
 // 安装 telnet
 brew install telnet
+
+// 网络抓包工具
+Wireshark
+
+// 路由跟踪工具
+Windows: tracert
+Linux/Mac: traceroute
+
+// ping 命令 (ICMP 协议)
+ping
+-f：设置 DF标志位为1，就是不能分片；
+-l：指定负载中的数据字节长度，填充该长度的数据；
+
 ```
 
 ###### 评估 Web 架构的七大关键属性
