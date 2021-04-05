@@ -60,3 +60,8 @@ Program
 ## （JIT）即时编译
 - 判断热点代码，比如一段代码被重复执行多次，就编译成机器码执行。
 - 不是热点代码，就解析执行。
+
+## 参考资料
+
+[AST Explorer](https://astexplorer.net/)
+[AST Explorer GitHub](https://github.com/fkling/astexplorer)
