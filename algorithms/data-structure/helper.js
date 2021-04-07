@@ -17,6 +17,10 @@ function defaultToString(item) {
   return item.toString()
 }
 
+function defaultCompare(paramA, paramB) {
+  return paramA === paramB
+}
+
 class ValuePair {
   constructor(key, val) {
     this.key = key
@@ -28,5 +32,6 @@ class ValuePair {
 }
 
 exports.defaultToString = defaultToString
+exports.defaultCompare = defaultCompare
 
 exports.ValuePair = ValuePair
