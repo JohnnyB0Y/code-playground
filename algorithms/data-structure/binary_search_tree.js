@@ -4,7 +4,7 @@
 //  Created by JohnnyB0Y on 2021/04/07.
 //  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
-const defaultCompare = require('./helper').defaultCompare
+const compare = require('./helper').compare
 
 class Node {
   constructor(key) {
@@ -15,13 +15,17 @@ class Node {
 }
 
 class BinarySearchTree {
-  constructor(compareFunc = defaultCompare) {
-    this.compareFunc = compareFunc
+  constructor() {
     this.root = null
   }
 
   insert(key) {
-
+    if (this.root === null) {
+      this.root = new Node(key)
+    }
+    else {
+      this.insertNode(this.root, key)
+    }
   }
 
   search(key) {
@@ -50,6 +54,17 @@ class BinarySearchTree {
 
   remove(key) {
 
+  }
+
+  insertNode(node, key) {
+    if (compare.lessThan(key, node.key)) {
+      // 左孩子
+      node.left ? this.insertNode(node.left, key) : node.left = new Node(key)
+    }
+    else {
+      // 右孩子
+      node.right ? this.insertNode(node.right, key) : node.right = new Node(key)
+    }
   }
 
 }

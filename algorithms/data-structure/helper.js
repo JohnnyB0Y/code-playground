@@ -21,6 +21,24 @@ function defaultCompare(paramA, paramB) {
   return paramA === paramB
 }
 
+class Compare {
+  equal = function (a, b) {
+    return a === b
+  }
+  lessThan = function (a, b) {
+    return a < b
+  }
+  lessThanOrEqual = function (a, b) {
+    return a <= b
+  }
+  greaterThan = function (a, b) {
+    return a > b
+  }
+  greaterThanOrEqual = function (a, b) {
+    return a >= b
+  }
+}
+
 class ValuePair {
   constructor(key, val) {
     this.key = key
@@ -35,3 +53,4 @@ exports.defaultToString = defaultToString
 exports.defaultCompare = defaultCompare
 
 exports.ValuePair = ValuePair
+exports.compare = new Compare()
