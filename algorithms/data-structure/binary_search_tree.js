@@ -106,7 +106,7 @@ class BinarySearchTree {
 
   removeNode(node, key, removeNode) {
     if (node) {
-      if (compare.equal(node.key, key)) { // 相等
+      if (compare.equal(key, node.key)) { // 相等
         if (!removeNode.key) { // 记录删除项
           removeNode.key = node.key
         }
@@ -128,12 +128,12 @@ class BinarySearchTree {
         node = null
         return node
       }
-      else if (compare.lessThan(node.key, key)) { // 小于
-        node.right = this.removeNode(node.right, key, removeNode)
+      else if (compare.lessThan(key, node.key)) { // 小于
+        node.left = this.removeNode(node.left, key, removeNode)
         return node
       }
       // 大于
-      node.left = this.removeNode(node.left, key, removeNode)
+      node.right = this.removeNode(node.right, key, removeNode)
       return node
     }
     return null
@@ -179,3 +179,4 @@ console.log(bst.max().key, 'max')
 console.log(bst.search(5), 'equal 5')
 
 console.log(bst.remove(6), 'remove 6')
+console.log(bst.remove(7), 'not remove 7')
