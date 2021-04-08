@@ -78,9 +78,8 @@ class BinarySearchTree {
     }
   }
 
-  min() {
-    if (this.root) {
-      let node = this.root
+  min(node = this.root) {
+    if (node) {
       while (node.left) {
         node = node.left
       }
@@ -89,9 +88,8 @@ class BinarySearchTree {
     return null
   }
 
-  max() {
-    if (this.root) {
-      let node = this.root
+  max(node = this.root) {
+    if (node) {
       while (node.right) {
         node = node.right
       }
@@ -101,7 +99,44 @@ class BinarySearchTree {
   }
 
   remove(key) {
+    const removeNode = new Node(null)
+    this.root = this.removeNode(this.root, key, removeNode)
+    return removeNode.key ? removeNode : null
+  }
 
+  removeNode(node, key, removeNode) {
+    if (node) {
+      if (compare.equal(node.key, key)) { // 相等
+        if (!removeNode.key) { // 记录删除项
+          removeNode.key = node.key
+        }
+        if (node.left && node.right) { // 两个孩子
+          const aux = this.min(node.right)
+          node.key = aux.key
+          node.right = this.removeNode(node.right, aux.key, removeNode)
+          return node
+        }
+        else if (node.left) { // 只有左孩子
+          node = node.left
+          return node
+        }
+        else if (node.right) { // 只有右孩子
+          node = node.right
+          return node
+        }
+        // 无孩子
+        node = null
+        return node
+      }
+      else if (compare.lessThan(node.key, key)) { // 小于
+        node.right = this.removeNode(node.right, key, removeNode)
+        return node
+      }
+      // 大于
+      node.left = this.removeNode(node.left, key, removeNode)
+      return node
+    }
+    return null
   }
 
   insertNode(node, key) {
@@ -142,3 +177,5 @@ console.log('-------------------------')
 console.log(bst.min().key, 'min')
 console.log(bst.max().key, 'max')
 console.log(bst.search(5), 'equal 5')
+
+console.log(bst.remove(6), 'remove 6')
