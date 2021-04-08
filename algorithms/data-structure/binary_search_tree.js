@@ -24,7 +24,19 @@ class BinarySearchTree {
   }
 
   search(key) {
+    return this.searchNode(this.root, key)
+  }
 
+  searchNode(node, key) {
+    if (node) {
+      if (compare.equal(node.key, key))
+        return node
+      if (compare.lessThan(node.key, key))
+        return this.searchNode(node.right, key)
+      
+      return this.searchNode(node.left, key)
+    }
+    return null
   }
 
   // 中序遍历
@@ -126,3 +138,7 @@ bst.postOrderTraverse(node => {
   console.log(node.key)
 })
 console.log('-------------------------')
+
+console.log(bst.min().key, 'min')
+console.log(bst.max().key, 'max')
+console.log(bst.search(5), 'equal 5')
