@@ -150,6 +150,8 @@ class BinarySearchTree {
 
 }
 
+exports.BinarySearchTree = BinarySearchTree
+
 const bst = new BinarySearchTree()
 
 bst.insert(1)

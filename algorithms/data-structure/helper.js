@@ -17,10 +17,6 @@ function defaultToString(item) {
   return item.toString()
 }
 
-function defaultCompare(paramA, paramB) {
-  return paramA === paramB
-}
-
 class Compare {
   equal = function (a, b) {
     return a === b
@@ -50,7 +46,6 @@ class ValuePair {
 }
 
 exports.defaultToString = defaultToString
-exports.defaultCompare = defaultCompare
 
 exports.ValuePair = ValuePair
 exports.compare = new Compare()
