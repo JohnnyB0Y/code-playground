@@ -6,7 +6,7 @@
 - 消息传递 Message Passing
   - [顺序进程（过程）间通信 Communicating Sequential Processes (CSP)](https://www.youtube.com/watch?v=Z8ZpWVuEx8c)
   - [Actor](https://blog.csdn.net/sixdaycoder/article/details/90751972)
-- 共享内存 Shread Memory
+- 共享内存 Shared Memory
   - 锁 Locks
   - 条件变量 Condition Variable
   - 信号量 Semaphore
