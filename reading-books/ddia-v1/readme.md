@@ -18,6 +18,12 @@
   - 计算密集型应用系统，通常是指最大瓶颈受 CPU主频制约的应用系统。
 - 系统升级 system upgrade
 - 系统降级 system degrade
+- 可靠的 - Reliable
+- 可扩展的 - Scalable
+- 可维护的 - Maintainable
+- 可靠性 - Reliability
+- 可扩展性 - Scalability
+- 可维护性 - Maintainability
 
 
 ### 书籍金句
