@@ -2,7 +2,19 @@
 - 从编程角度看，并发指的是能让某个函数独立于其他函数运行的能力。
 - 从编程角度看，并行指的是多核处理器同时运行多个独立函数的情况。
 
+并发程序的实现手段：
+- 消息传递 Message Passing
+  - [顺序进程（过程）间通信 Communicating Sequential Processes (CSP)](https://www.youtube.com/watch?v=Z8ZpWVuEx8c)
+  - [Actor](https://blog.csdn.net/sixdaycoder/article/details/90751972)
+- 共享内存 Shread Memory
+  - 锁 Locks
+  - 条件变量 Condition Variable
+  - 信号量 Semaphore
+  - ......
+
 ## Go语言的协程
+- 由于现代计算机是一个并行的机器，Go语言提供了基于CSP的并发特性支持。Go语言的动态栈使得 轻量级线程goroutine的初始栈可以很小，因此，创建一个goroutine的代价很小，创建百万级的 goroutine完全是可行的。
+
 - 当一个函数创建为 goroutine 时，Go会将其视为一个独立的工作单元。
 - 这个单元被调度到可用的逻辑处理器上执行。
 - Go运行时的调度器能够管理被创建的所有 goroutine并为其分配执行时间。
