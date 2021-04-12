@@ -26,3 +26,10 @@
 - 如果创建一个 goroutine并准备运行，这个goroutine就会被放到调度器的全局运行队列中。
 - 之后，调度器会将这些队列中的 goroutine分配给逻辑处理器，并放到这个逻辑处理器对应的本地运行队列中。
 - 本地运行队列中的 goroutine会一直等待直到自己被分配的逻辑处理器执行。
+
+## 概念术语
+- 并发 concurrent
+- 并行 parallel
+- 死锁 deadlock
+- 活锁 livelock
+- 饿死（饥饿）resource starvation
