@@ -19,5 +19,7 @@
 
 [《JavaScript 函数式编程指北》](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
 
+[《Site Reliability Engineering》笔记](https://arthurchiao.art/blog/sre-notes-zh/)
+
 ## 权威文档
 [RFC 索引](https://tools.ietf.org/rfc/index)
