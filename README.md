@@ -23,3 +23,6 @@
 
 ## 权威文档
 [RFC 索引](https://tools.ietf.org/rfc/index)
+
+## PDF 下载
+[《流畅的 Python》Fluent Python 2017](https://474b.com/file/18113597-318436791)
