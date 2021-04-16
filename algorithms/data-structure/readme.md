@@ -62,3 +62,14 @@
 ## 概念术语
 - 冲突 collision
 - 改变大小 resizing
+- 先进先出 First In First Out，FIFO
+- 后进先出 Last In Last Out，LIFO
+- 广度优先搜索 breadth-first search，BFS
+  - 用于解决两个节点之间是否存在路径？
+  - 用于解决最短路径问题；
+    - 编写国际跳棋 AI，计算最少走多少步就可获胜；
+    - 编写拼写检查器；
+    - 人际关系网络，最近的人脉；
+- 最短路径问题 shorterst-path problem
+- 节点 node
+- 边 edge
