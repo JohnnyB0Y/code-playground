@@ -7,7 +7,7 @@ class Node:
     self.key = key
     self.prev = prev
 
-# 广度优先算法
+# -------------------------- 广度优先算法 ---------------------------
 # A B C (A 指向 B、C 节点)
 # B G   (B 指向 G、N 节点)
 # G N   (G 指向 N 节点)
@@ -49,3 +49,9 @@ graph['G'] = [Node('N')]
 graph['C'] = [Node('N')]
 
 print(searchGraphNode(graph, 'A', 'N'))
+
+
+# -------------------------- 狄克斯特拉算法 ---------------------------
+# Dijkstra’s algorithm
+
+
