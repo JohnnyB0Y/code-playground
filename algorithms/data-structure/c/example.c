@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
   printf("Hello, world.\n");
@@ -70,5 +71,18 @@ int main() {
     *pi = 5;
     printf("pi: %d\n", *pi);
     free(pi);
+
+    // pi2 与 pi3  效果相等
+    int *pi2 = calloc(5, sizeof(int));
+    int *pi3 = malloc(sizeof(int));
+    memset(pi, 0, 5 * sizeof(int));
+  }
+
+  /**
+   * 静态、全局指针和malloc
+  */
+  {
+    static int *pi;
+    pi = malloc(sizeof(int));
   }
 }
