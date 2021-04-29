@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
   printf("Hello, world.\n");
@@ -55,4 +56,19 @@ int main() {
    * 给指针加上整数，相当于 加上 这个整数和指针数据类型对应字节数的乘积。
    * 给指针减去整数，相当于 减去 这个整数和指针数据类型对应字节数的乘积。
   */
+
+  /**
+   * 动态内存分配
+   * 
+   * malloc 从堆上分配内存
+   * realloc 在之前分配的内存块的基础上，将内存重新分配为更大或更小的部分
+   * calloc 从堆上分配内存并清零
+   * free 将内存块返回堆
+  */
+  {
+    int *pi = (int *) malloc(sizeof(int));
+    *pi = 5;
+    printf("pi: %d\n", *pi);
+    free(pi);
+  }
 }
