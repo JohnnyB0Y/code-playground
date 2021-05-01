@@ -5,9 +5,10 @@ void copyArr(int *arr, int *toArr, int count);
 void printArr(int *arr, int count);
 void bubbleSort(int *arr, int count);
 void selectionSort(int *arr, int count);
+void insertionSort(int *arr, int count);
 
 int main() {
-  int arr[] = {1, 5, 6, 4, 2, 3, 9, 0};
+  int arr[] = {1, 5, 6, 4, 2, 3, 9, 0, -1};
   int count = sizeof(arr) / sizeof(arr[0]);
   printArr(arr, count);
 
@@ -21,14 +22,17 @@ int main() {
   bubbleSort(arr2, count);
   printArr(arr2, count);
 
+  int arr3[count];
+  copyArr(arr, arr3, count);
+  bubbleSort(arr3, count);
+  printArr(arr3, count);
+
   return 0;
 }
 
 // 冒泡排序
 void bubbleSort(int *arr, int count) {
-  if (count < 2) {
-    return;
-  }
+  if (count < 2) return;
   
   for (int i = count - 1; i >= 0; i--) {
     for (int j = 0; j < i; j++) {
@@ -43,9 +47,7 @@ void bubbleSort(int *arr, int count) {
 
 // 选择排序
 void selectionSort(int *arr, int count) {
-  if (count < 2) {
-    return;
-  }
+  if (count < 2) return;
 
   for (int i = 0; i < count; i++) {
     int min = arr[i];
@@ -55,6 +57,25 @@ void selectionSort(int *arr, int count) {
       }
     }
     arr[i] = min;
+  }
+}
+
+// 插入排序
+void insertionSort(int *arr, int count) {
+  if (count < 2) return;
+
+  for (int i = 1; i < count; i++) {
+    int temp = arr[i];
+    int idx = -1;
+    for (int j = i - 1; j >= 0; j--) {
+      idx = j;
+      if (temp < arr[j]) {
+        arr[j+1] = arr[j];
+      }
+    }
+    if (idx != -1) {
+      arr[idx] = temp;
+    }
   }
 }
 
