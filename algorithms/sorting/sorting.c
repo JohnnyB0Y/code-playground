@@ -4,17 +4,23 @@
 void copyArr(int *arr, int *toArr, int count);
 void printArr(int *arr, int count);
 void bubbleSort(int *arr, int count);
-
+void selectionSort(int *arr, int count);
 
 int main() {
   int arr[] = {1, 5, 6, 4, 2, 3, 9, 0};
   int count = sizeof(arr) / sizeof(arr[0]);
+  printArr(arr, count);
 
   int arr1[count];
   copyArr(arr, arr1, count);
-  printArr(arr1, count);
   bubbleSort(arr1, count);
   printArr(arr1, count);
+
+  int arr2[count];
+  copyArr(arr, arr2, count);
+  bubbleSort(arr2, count);
+  printArr(arr2, count);
+
   return 0;
 }
 
@@ -31,8 +37,24 @@ void bubbleSort(int *arr, int count) {
         arr[j] = arr[j+1];
         arr[j+1] = temp;
       }
-      
     }
+  }
+}
+
+// 选择排序
+void selectionSort(int *arr, int count) {
+  if (count < 2) {
+    return;
+  }
+
+  for (int i = 0; i < count; i++) {
+    int min = arr[i];
+    for (int j = i + 1; j < count; j++) {
+      if (min > arr[j]) {
+        min = arr[j];
+      }
+    }
+    arr[i] = min;
   }
 }
 
