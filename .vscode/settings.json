@@ -1,3 +1,13 @@
 {
-  "python.pythonPath": "/usr/local/bin/python3"
+  "python.pythonPath": "/usr/local/bin/python3",
+  "files.associations": {
+    "*.podspec": "ruby",
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "__locale": "c",
+    "__string": "c",
+    "string": "c",
+    "string_view": "c"
+  }
 }
