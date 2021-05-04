@@ -27,6 +27,10 @@ void array_malloc(array *self, int capacity, int size_of_item) {
   self->next_item = NULL;
 }
 
+void array_destroy(array *self) {
+  free(self->data);
+}
+
 void array_init(array *self, void *arr, int size_of_arr) {
   memcpy(self->data, arr, size_of_arr);
 }
@@ -67,5 +71,6 @@ int main() {
   array_add_item(&arr, &item);
   printf("item: %d\n", *(int *)array_last_item(&arr));
 
+  array_destroy(&arr);
   return 0;
 }
