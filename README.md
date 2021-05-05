@@ -21,6 +21,8 @@
 
 [《Site Reliability Engineering》笔记](https://arthurchiao.art/blog/sre-notes-zh/)
 
+[iOS Core Animation: Advanced Techniques](https://zsisme.gitbooks.io/ios-/content/index.html)
+
 ## 权威文档
 [RFC 索引](https://tools.ietf.org/rfc/index)
 
