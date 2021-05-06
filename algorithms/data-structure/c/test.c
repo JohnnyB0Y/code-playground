@@ -30,6 +30,8 @@ int main() {
   array_add_item(arr, &item);
   printf("item: %d\n", *(int *)array_last_item(arr));
 
+  array_iteration(arr, print_item);
+
   array_destroy(arr);
 
 
@@ -62,4 +64,5 @@ int main() {
 
 void print_item(id item, int idx) {
   printf("item: %d, at index: %d \n", *(int *)item, idx);
+  printf("-------------------------- \n");
 }

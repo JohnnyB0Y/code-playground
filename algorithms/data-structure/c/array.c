@@ -34,6 +34,7 @@ void array_destroy(array_t self) {
 }
 
 void array_init(array_t self, void *arr, int size_of_arr) {
+  self->count = size_of_arr / self->size_of_item;
   memcpy(self->data, arr, size_of_arr);
 }
 
@@ -50,4 +51,11 @@ id array_get_item(array_t self, int index) {
 
 id array_last_item(array_t self) {
   return array_get_item(self, self->count-1);
+}
+
+void array_iteration(array_t self, iteration_func func) {
+  char *data = self->data;
+  for (int i = 0; i < self->count; i++) {
+    func(data + i * self->size_of_item, i);
+  }
 }
