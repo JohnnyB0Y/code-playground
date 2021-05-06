@@ -44,12 +44,14 @@ linked_list_t linked_list_malloc(void) {
 }
 
 void linked_list_destroy(linked_list_t self) {
-  node_t arr[self->count + 1];
-  arr[0] = self->head;
-  for (int i = 1; i < self->count + 1; i++) {
-    arr[i] = arr[i - 1]->next;
-    free(arr[i - 1]);
+  node_t node = self->head->next;
+  node_t temp = NULL;
+  for (int i = 0; i < self->count; i++) {
+    temp = node;
+    node = temp->next;
+    free(temp);
   }
+  free(self->head);
   free(self);
 }
 

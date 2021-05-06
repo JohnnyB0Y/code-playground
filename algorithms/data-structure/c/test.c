@@ -47,11 +47,11 @@ int main() {
 
   printf("item: %d\n", *(int *)linked_list_get_item(linked, 0));
   printf("item: %d\n", *(int *)linked_list_get_item(linked, 1));
-
   linked_list_iteration(linked, print_item);
 
   linked_list_remove_item(linked, &linked_item1);
-
+  linked_list_add_item(linked, &linked_item3);
+  linked_list_add_item(linked, &linked_item4);
   linked_list_iteration(linked, print_item);
 
   linked_list_destroy(linked);
