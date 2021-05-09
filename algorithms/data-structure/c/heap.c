@@ -15,7 +15,7 @@ void heap_init(array_t arr, compare_func func) {
   }
 }
 
-void heap_up_adjust(array_t arr, int parent_index, int count) {
+void heap_up_adjust(array_t arr) {
   
 }
 
