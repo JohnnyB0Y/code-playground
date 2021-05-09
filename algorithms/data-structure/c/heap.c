@@ -33,7 +33,6 @@ void heap_down_adjust(array_t arr, int parent_index, compare_func func) {
         break;
       }
 
-      // ... 
     }
   }
 }

@@ -44,7 +44,31 @@ void array_add_item(array_t self, id item) {
   self->count++;
 }
 
+// 添加item到index位置，可能存在内存泄漏，需要自己释放
+id array_add_item_at_index(array_t self, id item, int index) {
+  if (index >= self->count) {
+    return NULL;
+  }
+
+  id old_item = array_get_item(self, index);
+  char *data = self->data;
+  memcpy(data + self->size_of_item * index, item, self->size_of_item);
+  return old_item;
+}
+
+void array_exchange_index_to_index(array_t self, int at_index, int to_index) {
+  id at_item = array_get_item(self, at_index);
+  id to_item = array_get_item(self, to_index);
+
+  char *data = self->data;
+  memcpy(data + self->size_of_item * at_index, to_item, self->size_of_item);
+  memcpy(data + self->size_of_item * to_index, at_item, self->size_of_item);
+}
+
 id array_get_item(array_t self, int index) {
+  if (index >= self->count) {
+    return NULL;
+  }
   char *data = self->data;
   return data + index * self->size_of_item;
 }
