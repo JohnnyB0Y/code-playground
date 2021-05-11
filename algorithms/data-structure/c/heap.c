@@ -6,12 +6,12 @@
 
 #include "array.c"
 
-void heap_down_adjust(array_t arr, int parent_index, compare_func func);
+void heap_down_adjust(array_t arr, int parent_index, compare_func compare);
 
-void heap_init(array_t arr, compare_func func) {
+void heap_init(array_t arr, compare_func compare) {
   // 从最后一个非叶子节点开始，依次下沉调整
   for (int i = arr->count / 2; i >= 0; i--) {
-    heap_down_adjust(arr, i, func);
+    heap_down_adjust(arr, i, compare);
   }
 }
 
