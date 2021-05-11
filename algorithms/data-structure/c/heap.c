@@ -4,7 +4,7 @@
 //  Created by JohnnyB0Y on 2021/05/09.
 //  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
-#include "array.c"
+#include "array.h"
 
 void heap_down_adjust(array_t arr, int parent_index, compare_func compare);
 

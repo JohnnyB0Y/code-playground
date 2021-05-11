@@ -4,9 +4,9 @@
 //  Created by JohnnyB0Y on 2021/05/06.
 //  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
+#include "array.h"
 #include "array.c"
 #include "linked_list.c"
-#include "heap.c"
 
 void print_item(id item, int idx);
 

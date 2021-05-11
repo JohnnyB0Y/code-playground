@@ -8,16 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "base.h"
+#include "array.h"
 
-struct array {
-  int capacity;
-  int count;
-  int size_of_item;
-  id data;
-};
-
-typedef struct array * array_t;
 
 array_t array_malloc(int capacity, int size_of_item) {
   array_t self = malloc(sizeof(struct array));
