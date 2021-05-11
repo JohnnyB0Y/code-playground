@@ -6,8 +6,13 @@
 
 #include <stdbool.h>
 
+#ifndef BASE_H
+#define BASE_H
+
 typedef void * id;
 
 typedef void (*iteration_func)(id item, int idx);
 
 typedef bool (*compare_func)(id val1, id val2);
+
+#endif
