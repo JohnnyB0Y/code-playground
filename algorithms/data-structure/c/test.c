@@ -6,6 +6,7 @@
 
 #include "array.c"
 #include "linked_list.c"
+#include "heap.c"
 
 void print_item(id item, int idx);
 
