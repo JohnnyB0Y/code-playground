@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 void copyArr(int *arr, int *toArr, int count);
 void printArr(int *arr, int count);
@@ -14,9 +15,11 @@ void bubbleSort(int *arr, int count);
 void selectionSort(int *arr, int count);
 void insertionSort(int *arr, int count);
 void shellSort(int *arr, int count, unsigned int gap);
+void mergeSort(int *arr, int count);
 
 int main() {
-  int arr[] = {1, 5, 6, 4, 2, 3, 9, 0, -1};
+  //  
+  int arr[] = {1, 5, 6, 4, 2, 3, 9, 0, -1, 5};
   int count = sizeof(arr) / sizeof(arr[0]);
   printf("originSort: \n");
   printArr(arr, count);
@@ -44,6 +47,12 @@ int main() {
   shellSort(arr4, count, 2);
   printf("shellSort: \n");
   printArr(arr4, count);
+
+  int arr5[count];
+  copyArr(arr, arr5, count);
+  mergeSort(arr5, count);
+  printf("mergeSort: \n");
+  printArr(arr5, count);
 
   return 0;
 }
@@ -101,6 +110,7 @@ void insertionSort(int *arr, int count) {
   }
 }
 
+// 希尔排序
 void shellSort(int *arr, int count, unsigned int gap) {
   if (count < 2 || gap < 1 || gap > count) return;
 
@@ -137,6 +147,63 @@ void shellSort(int *arr, int count, unsigned int gap) {
   // num = 3 / gap = 1
   // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   
+}
+
+// 归并排序
+void mergeSort(int *arr, int count) {
+  if (count < 2) return;
+  // 两两分组 loop = count / 2;
+  // 双双分组 loop = loop / 2;
+  
+  int group = 2; // 一组元素个数
+  int stop = false;
+  while ( stop == false ) {
+
+    
+    int loop = count / group;
+    int tail = 0;
+    if (group >= count / 2 && count % 2 != 0) { // 最后一轮，并且数组是单数
+      tail = 1;
+    }
+
+    printf("%d - %d \n", group, loop);
+    printArr(arr, count);
+    
+    int tmp[group + tail];
+    for (int i = 0; i < loop; ++i) {
+      int minIdx = 0;
+      int start = i * group;
+      int idx1 = start;
+      int idx2 = start + group / 2;
+      for (int j = 0; j < group + tail; ++j) {
+        if ( idx1 >= start + group / 2) {
+          minIdx = idx2++;
+        }
+        else if ( idx2 >= start + group + tail ) {
+          minIdx = idx1++;
+        }
+        else if ( arr[idx1] > arr[idx2] ) {
+          minIdx = idx2++;
+        }
+        else {
+          minIdx = idx1++;
+        }
+        tmp[j] = arr[minIdx];
+      }
+      for (int j = 0; j < group; ++j) {
+        arr[i * group + j] = tmp[j];
+      }
+    }
+
+    if (group >= count / 2) {
+      stop = true;
+    }
+    
+    group *= 2;
+    if (group > count / 2) {
+      group = count / 2;
+    }
+  }
 }
 
 // private

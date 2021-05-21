@@ -11,6 +11,11 @@
     "string_view": "c",
     "__tuple": "c",
     "array": "c",
-    "data_structure.h": "c"
+    "data_structure.h": "c",
+    "__bit_reference": "c",
+    "algorithm": "c",
+    "bitset": "c",
+    "chrono": "c",
+    "unordered_map": "c"
   }
 }
