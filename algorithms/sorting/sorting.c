@@ -155,31 +155,22 @@ void mergeSort(int *arr, int count) {
   // 两两分组 loop = count / 2;
   // 双双分组 loop = loop / 2;
   
-  int group = 2; // 一组元素个数
+  int group = 1; // 一组元素个数
   int stop = false;
   while ( stop == false ) {
 
-    
-    int loop = count / group;
-    int tail = 0;
-    if (group >= count / 2 && count % 2 != 0) { // 最后一轮，并且数组是单数
-      tail = 1;
-    }
-
-    printf("%d - %d \n", group, loop);
-    printArr(arr, count);
-    
-    int tmp[group + tail];
+    int loop = count / (group * 2);
+    int tmp[group * 2];
     for (int i = 0; i < loop; ++i) {
       int minIdx = 0;
-      int start = i * group;
+      int start = i * group * 2; // 下一对开始
       int idx1 = start;
-      int idx2 = start + group / 2;
-      for (int j = 0; j < group + tail; ++j) {
-        if ( idx1 >= start + group / 2) {
+      int idx2 = start + group;
+      for (int j = 0; j < group * 2; ++j) {
+        if ( idx1 >= start + group) {
           minIdx = idx2++;
         }
-        else if ( idx2 >= start + group + tail ) {
+        else if ( idx2 >= start + group * 2 ) {
           minIdx = idx1++;
         }
         else if ( arr[idx1] > arr[idx2] ) {
@@ -190,20 +181,21 @@ void mergeSort(int *arr, int count) {
         }
         tmp[j] = arr[minIdx];
       }
-      for (int j = 0; j < group; ++j) {
-        arr[i * group + j] = tmp[j];
+      for (int j = 0; j < group * 2; ++j) {
+        arr[start + j] = tmp[j];
       }
     }
 
+    printArr(arr, count);
+
+    group *= 2;
     if (group >= count / 2) {
       stop = true;
     }
-    
-    group *= 2;
-    if (group > count / 2) {
-      group = count / 2;
-    }
   }
+
+  printf("%d ---", group);
+  insertionSort(arr, count);
 }
 
 // private
