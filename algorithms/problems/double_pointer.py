@@ -94,19 +94,5 @@ def findInOrderlyArray(arr1, arr2, k):
               return arr1[idx1]
             idx1 += 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 测试
 domain()
