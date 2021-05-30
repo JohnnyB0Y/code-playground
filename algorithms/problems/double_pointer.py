@@ -23,6 +23,13 @@ def domain():
 
 # 两个有序数组 合并成 有序数组
 def mergeOrderlyArray(arr1, arr2):
+
+  if len(arr1) <= 0:
+    return arr2
+  
+  if len(arr2) <= 0:
+    return arr1
+
   idx1 = idx2 = 0
   arr = []
 
@@ -49,6 +56,16 @@ def mergeOrderlyArray(arr1, arr2):
 
 # 两个有序数组，中找出排 第k位 的数
 def findInOrderlyArray(arr1, arr2, k):
+
+  if k >= len(arr1) + len(arr2):
+    return None
+
+  if len(arr1) <= 0:
+    return arr2[k]
+  
+  if len(arr2) <= 0:
+    return arr1[k]
+
   idx1 = idx2 = 0
   loop = -1
 
