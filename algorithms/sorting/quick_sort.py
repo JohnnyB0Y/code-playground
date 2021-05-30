@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 def quickSort(arr):
   length = len(arr)
   if length <= 1:

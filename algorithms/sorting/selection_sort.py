@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 def selectionSort(arr):
   length = len(arr)
   for i in range(length-1):
