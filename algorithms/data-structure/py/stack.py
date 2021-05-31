@@ -15,6 +15,9 @@ class AGStack:
   def __len__(self):
     return self.top + 1
 
+  def __str__(self):
+    return ' '.join([str(elem) for elem in self.arr])
+
   def empty(self):
     if self.top < 0:
       return True
