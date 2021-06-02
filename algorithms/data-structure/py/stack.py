@@ -46,32 +46,32 @@ class AGStack:
 
 
 # test
-stack = AGStack(8)
+if __name__ == "__main__":
+  stack = AGStack(8)
 
-print("empty:", stack.empty())
-print("full:", stack.full())
-print("len:", len(stack))
+  print("empty:", stack.empty())
+  print("full:", stack.full())
+  print("len:", len(stack))
 
-print("pop top:", stack.pop())
+  print("pop top:", stack.pop())
 
-print("push 8 number:")
-for i in range(0, 8):
-  stack.push(i+1)
+  print("push 8 number:")
+  for i in range(0, 8):
+    stack.push(i+1)
 
-print("len:", len(stack))
-print("pop top:", stack.pop())
-print("pop top:", stack.pop())
-print("len:", len(stack))
+  print("len:", len(stack))
+  print("pop top:", stack.pop())
+  print("pop top:", stack.pop())
+  print("len:", len(stack))
 
 
-print("push 11:", stack.push(11))
-print("push 12:", stack.push(12))
-print("push 13:", stack.push(13))
+  print("push 11:", stack.push(11))
+  print("push 12:", stack.push(12))
+  print("push 13:", stack.push(13))
 
-print("full:", stack.full())
+  print("full:", stack.full())
 
-print("len:", len(stack))
-print(stack.pop())
-print(stack.pop())
-print("len:", len(stack))
-
+  print("len:", len(stack))
+  print(stack.pop())
+  print(stack.pop())
+  print("len:", len(stack))

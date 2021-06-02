@@ -79,49 +79,50 @@ class AGQueue:
 
 
 # test
-queue = AGQueue(8)
-
-print(queue)
-print("dequeue top:", queue.dequeue())
-
-print("enqueue 7 number:")
-for i in range(0, 7):
-  queue.enqueue(i+1)
-print(queue)
-
-
-print("dequeue top:", queue.dequeue())
-print("dequeue top:", queue.dequeue())
-print(queue)
-
-
-print("enqueue 11:", queue.enqueue(11))
-print("enqueue 12:", queue.enqueue(12))
-print("enqueue 13:", queue.enqueue(13))
-print(queue)
-
-
-print("dequeue top:", queue.dequeue())
-print("dequeue top:", queue.dequeue())
-print(queue)
-
-print("enqueue 21:", queue.enqueue(21))
-print("enqueue 22:", queue.enqueue(22))
-print("enqueue 23:", queue.enqueue(23))
-print(queue)
-
-
-while not queue.empty():
-  print("dequeue top:", queue.dequeue())
-print(queue)
-
-print("enqueue 31:", queue.enqueue(31))
-print("enqueue 32:", queue.enqueue(32))
-print("enqueue 33:", queue.enqueue(33))
-print(queue)
-
-for i in range(0, 18):
-  print("enqueue:", i+1, queue.enqueue(i+1))
+if __name__ == "__main__":
+  queue = AGQueue(8)
+  
+  print(queue)
   print("dequeue top:", queue.dequeue())
 
-print(queue)
+  print("enqueue 7 number:")
+  for i in range(0, 7):
+    queue.enqueue(i+1)
+  print(queue)
+
+
+  print("dequeue top:", queue.dequeue())
+  print("dequeue top:", queue.dequeue())
+  print(queue)
+
+
+  print("enqueue 11:", queue.enqueue(11))
+  print("enqueue 12:", queue.enqueue(12))
+  print("enqueue 13:", queue.enqueue(13))
+  print(queue)
+
+
+  print("dequeue top:", queue.dequeue())
+  print("dequeue top:", queue.dequeue())
+  print(queue)
+
+  print("enqueue 21:", queue.enqueue(21))
+  print("enqueue 22:", queue.enqueue(22))
+  print("enqueue 23:", queue.enqueue(23))
+  print(queue)
+
+
+  while not queue.empty():
+    print("dequeue top:", queue.dequeue())
+  print(queue)
+
+  print("enqueue 31:", queue.enqueue(31))
+  print("enqueue 32:", queue.enqueue(32))
+  print("enqueue 33:", queue.enqueue(33))
+  print(queue)
+
+  for i in range(0, 18):
+    print("enqueue:", i+1, queue.enqueue(i+1))
+    print("dequeue top:", queue.dequeue())
+
+  print(queue)
