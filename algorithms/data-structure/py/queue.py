@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*
-#  stack.py
+#  queue.py
 #
 #
 #  Created by JohnnyB0Y on 2021/05/31.
