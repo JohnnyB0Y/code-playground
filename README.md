@@ -33,3 +33,5 @@
 
 ## 视频课程
 [MIT 6.824 分布式系统](https://www.bilibili.com/video/av87684880)
+
+[Introduction to Networking](https://www.youtube.com/watch?v=cNwEVYkx2Kk&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8)
