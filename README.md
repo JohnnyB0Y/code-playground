@@ -30,3 +30,6 @@
 [《流畅的 Python》2017](https://474b.com/file/18113597-318436791)
 
 [fluentpython / example-code](https://github.com/fluentpython/example-code)
+
+## 视频课程
+[MIT 6.824 分布式系统](https://www.bilibili.com/video/av87684880)
