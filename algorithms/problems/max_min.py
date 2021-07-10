@@ -11,9 +11,13 @@ def domain():
 # 有三种硬币，分别面值2元、5元和7元，每种硬币都足够多
 # 买一本书需要27元
 # 问？如何用最少的硬币组合正好付清，且不需要对方找零？
-def countOfCoinChange():
+def minOfCoinChange():
   pass
 
+
+# 字符串中的最长回文（Palindrome）
+def maxOfPalindrome():
+  pass
 
 # test
 domain()
