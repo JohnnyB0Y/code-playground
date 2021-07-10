@@ -13,6 +13,7 @@ def domain():
 
   print("allOfNumbersSum:")
   print(allOfNumbersSum(arr1, 3))
+  print(allOfNumbersSum(arr1, 2))
 
 
 # 获取所有两数和为sum的结果
@@ -26,66 +27,38 @@ def allOfTowNumbersSum(numbers, sum):
 
 # 获取所有 和为 sum 的组合结果
 def allOfNumbersSum(numbers, sum):
-  recAllOfNumbersSum(numbers, len(numbers) - 1, sum)
- 
-  """
-  确认状态
-  arr: [0, 1, 2, 3, 4, ... i]
-  f(arr, i, sum):
-    选：    f(arr, i - 1, sum - arr[i])
-    不选：  f(arr, i - 1, sum)
 
-  初始条件和边界情况
-  if i < 0:
-    结束
+  i = 0
+  l = len(numbers)
+  results = []
+  while i < l: # 遍历数组第一层
+    
+    subSum = numbers[i]
+    j = i + 1 # 初始化 j
+    i += 1 # 递增 i
 
-  if arr[i] > sum:
-    结束
-  
-  if arr[i] == sum:
-    放入数组
-    结束
+    if subSum > sum: # 大于sum，跳过
+      continue
 
-  if arr[i] < sum:
-    选：    f(arr, i - 1, sum - arr[i])
-    不选：  f(arr, i - 1, sum)
-
-  """
-
-results = []
-def recAllOfNumbersSum(numbers, index, sum):
-
-  result=[]
-
-  if index < 0:
-    # 结束？打印？
-    return True, False
-
-  cur = numbers[index]
-  if cur > sum:
-    return True, False
-  
-  if cur == sum:
-    result.append(cur)
-    return True, True
-  
-  if cur < sum:
-    result.append(cur)
-    end, p = recAllOfNumbersSum(numbers, index - 1, sum - cur)
-    if end and p:
-      print(result)
-      result = []
-      # print(r)
-    elif not end:
-      pass
-
-    end, p = recAllOfNumbersSum(numbers, index - 1, sum)
-    if end and p:
-      print(result)
-      result = []
-
-  return False, False
-
+    if subSum == sum: # 自己等于sum
+      results.append([subSum])
+    
+    result = []
+    result.append(subSum)
+    while j < l:
+      sub = numbers[j]
+      subSum += sub
+      j += 1
+      if subSum < sum:
+        result.append(sub)
+      elif subSum == sum:
+        result.append(sub)
+        results.append(result)
+        result = result[:] # 复制一份
+      else:
+        subSum -= sub # 大于sum，回退
+        continue
+  return results
 
 # test
 domain()
