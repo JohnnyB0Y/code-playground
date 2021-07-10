@@ -11,8 +11,8 @@ def domain():
   print(allOfTowNumbersSum(arr1, 11))
   print(allOfTowNumbersSum(arr2, 11))
 
-  # print("allOfNumbersSum:")
-  # print(allOfNumbersSum(arr1, 3))
+  print("allOfNumbersSum:")
+  print(allOfNumbersSum(arr1, 3))
 
 
 # 获取所有两数和为sum的结果
@@ -26,41 +26,65 @@ def allOfTowNumbersSum(numbers, sum):
 
 # 获取所有 和为 sum 的组合结果
 def allOfNumbersSum(numbers, sum):
-  numbers.sort()
-  # 未完成 ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-  maxIdx = len(numbers) - 1
-  tmp = []
+  recAllOfNumbersSum(numbers, len(numbers) - 1, sum)
+ 
+  """
+  确认状态
+  arr: [0, 1, 2, 3, 4, ... i]
+  f(arr, i, sum):
+    选：    f(arr, i - 1, sum - arr[i])
+    不选：  f(arr, i - 1, sum)
 
-  while maxIdx >= 0:
-    if numbers[maxIdx] < sum:
-      break
-    elif numbers[maxIdx] == sum:
-      # 相同单个元素放入数组
-      tmp.append([numbers[maxIdx]])
-    maxIdx -= 1
+  初始条件和边界情况
+  if i < 0:
+    结束
+
+  if arr[i] > sum:
+    结束
   
-  for i in range(0, maxIdx):
-    subarr = [numbers[i]]
-    idxArr = []
-    tmpsum = numbers[i]
-    rightIdx = maxIdx
-    while rightIdx > i:
-      currentIdx = rightIdx
-      while currentIdx > i:
-        tmpsum += numbers[currentIdx]
-        subarr.append(numbers[currentIdx])
-        if tmpsum > sum:
-          tmpsum = numbers[i]
-          break
-        elif tmpsum == sum:
-          tmp.append(subarr)
-          subarr = [numbers[i]]
-          break
-        else:
-          currentIdx -= 1
-      rightIdx -= 1
-    
-  return tmp
+  if arr[i] == sum:
+    放入数组
+    结束
+
+  if arr[i] < sum:
+    选：    f(arr, i - 1, sum - arr[i])
+    不选：  f(arr, i - 1, sum)
+
+  """
+
+results = []
+def recAllOfNumbersSum(numbers, index, sum):
+
+  result=[]
+
+  if index < 0:
+    # 结束？打印？
+    return True, False
+
+  cur = numbers[index]
+  if cur > sum:
+    return True, False
+  
+  if cur == sum:
+    result.append(cur)
+    return True, True
+  
+  if cur < sum:
+    result.append(cur)
+    end, p = recAllOfNumbersSum(numbers, index - 1, sum - cur)
+    if end and p:
+      print(result)
+      result = []
+      # print(r)
+    elif not end:
+      pass
+
+    end, p = recAllOfNumbersSum(numbers, index - 1, sum)
+    if end and p:
+      print(result)
+      result = []
+
+  return False, False
 
 
 # test
