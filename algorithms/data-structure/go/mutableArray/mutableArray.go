@@ -28,5 +28,5 @@ func MakeMutableArray(capacity int) MutableArray {
 }
 
 func (arrM *MutableArray) Add(value int) {
-	append(arrM.innerArr, value)
+	// append(arrM.innerArr, value)
 }

@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*
+#  count.py
+#
+#
+#  Created by JohnnyB0Y on 2021/07/11.
+#  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
 def domain():
   points = [[1, 1, 3, 3], [1, 1, 5, 3], [0, 0, 0, 0], [1, 1, 1, 2], [1, 2, 2, 2]]
