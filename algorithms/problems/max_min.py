@@ -6,7 +6,7 @@
 #  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
 def domain():
-  strs = ["a", "aa", "aba", "baaa", "baaabd", "kkkfcddddddcfk"]
+  strs = ["", "a", "aa", "aba", "baaa", "baaabd", "kkkfcddddddcfk"]
   for str in strs:
     max = maxOfPalindrome(str)
     print(str, "maxOfPalindrome:", max)
@@ -30,59 +30,36 @@ def maxOfPalindrome(str):
   # 第二步，向左向右探
 
   strLen = len(str)
-  if strLen <= 1: # 一个字符串的时候
-    return strLen
-
-  if strLen <= 2: # 两个字符串的时候
-    if str[0] == str[1]:
-      return 2
-    else:
-      return 1
-
   left = 0
   right = 1
-  
-  max = 1
+  max = 0 if strLen == 0 else 1
+
   while right < strLen:
-    if str[left] == str[right]: # aa
-      while True:
-        if right + 1 < strLen and str[right] == str[right+1]: # aaa....
-          right += 1
-        else:
-          break
+    if str[left] == str[right]: # aa...
+      while right + 1 < strLen and str[right] == str[right+1]:  # aaa....
+        right += 1
       # 左右探索
-      # print("up:", left, right)
       while (left > 0 and right + 1 < strLen) and str[left-1] == str[right+1]:
         left -= 1
         right += 1
-
       # 探索完成
-      if (right - left + 1) > max:
-        max = right - left + 1
-
-      left = right
-      right += 1
+      max = (right - left + 1) if (right - left + 1) > max else max
 
     else: # ab...
-      # print("down:", left, right)
-      if (left >= 0 and right + 1 < strLen) and str[left] == str[right+1]: # aba
-        right += 1
-      else: # abc
+      right += 1 
+      if (left < 0 or right + 1 >= strLen) or str[left] != str[right+1]: # abc
         left += 1
-        right += 1
         continue
-
       # 左右探索
-      while (left > 0 and right + 1 < strLen) and str[left-1] == str[right+1]:
+      while (left > 0 and right + 1 < strLen) and str[left-1] == str[right+1]: # aba
         left -= 1
         right += 1
-      
       # 探索完成
-      if right - left + 1 > max:
-        max = right - left + 1
+      max = (right - left + 1) if (right - left + 1) > max else max
 
-      left = right
-      right += 1
+    left = right
+    right += 1
+
   return max
 
 # test
