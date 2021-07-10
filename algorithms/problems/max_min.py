@@ -6,6 +6,7 @@
 #  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
 def domain():
+  #       0    1    2      3      3         5             12
   strs = ["", "a", "aa", "aba", "baaa", "baaabd", "kkkfcddddddcfk"]
   for str in strs:
     max = maxOfPalindrome(str)
@@ -36,26 +37,22 @@ def maxOfPalindrome(str):
 
   while right < strLen:
     if str[left] == str[right]: # aa...
-      while right + 1 < strLen and str[right] == str[right+1]:  # aaa....
+      while right + 1 < strLen and str[right] is str[right+1]:  # aaa....
         right += 1
-      # 左右探索
-      while (left > 0 and right + 1 < strLen) and str[left-1] == str[right+1]:
-        left -= 1
-        right += 1
-      # 探索完成
-      max = (right - left + 1) if (right - left + 1) > max else max
 
     else: # ab...
-      right += 1 
-      if (left < 0 or right + 1 >= strLen) or str[left] != str[right+1]: # abc
+      right += 1
+      if (left < 0 or right >= strLen) or str[left] is not str[right]: # abc ? aba
         left += 1
         continue
-      # 左右探索
-      while (left > 0 and right + 1 < strLen) and str[left-1] == str[right+1]: # aba
-        left -= 1
-        right += 1
-      # 探索完成
-      max = (right - left + 1) if (right - left + 1) > max else max
+
+    # 左右探索
+    while (left > 0 and right + 1 < strLen) and str[left-1] is str[right+1]: 
+      left -= 1
+      right += 1
+
+    # 探索完成
+    max = (right - left + 1) if (right - left + 1) > max else max
 
     left = right
     right += 1
