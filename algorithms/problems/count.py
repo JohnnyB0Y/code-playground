@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*
 
 def domain():
-  arr1 = [1, 3, 5, 2, 1, 0]
-  arr2 = [2, 1, 0, 9, 11, 12, 4]
+  points = [[1, 1, 3, 3], [1, 1, 5, 3], [0, 0, 0, 0], [1, 1, 1, 2], [1, 2, 2, 2]]
 
-  print("countOfRobotMove:")
-  result = countOfRobotMove(1, 1, 3, 3)
-  print(result)
-
+  for i in range(0, len(points)):
+    startX = points[i][0]
+    startY = points[i][1]
+    endX = points[i][2]
+    endY = points[i][3]
+    print("countOfRobotMove:", startX, startY, endX, endY)
+    result = countOfRobotMove(startX, startY, endX, endY)
+    print("Total move:", result)
+  
 
 # 在网格中，机器人🤖 从起点（1，1）开始，走到（x, y) 需要多少步，只能向下或向右走；
 def countOfRobotMove(startX, startY, endX, endY):
