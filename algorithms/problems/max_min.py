@@ -6,8 +6,8 @@
 #  Copyright © 2021 JohnnyB0Y. All rights reserved.
 
 def domain():
-  #       0    1    2      3      3         5             12
-  strs = ["", "a", "aa", "aba", "baaa", "baaabd", "kkkfcddddddcfk"]
+  #       0    1    2      3      3         5             12                        4
+  strs = ["", "a", "aa", "aba", "baaa", "baaabd", "kkkfcddddddcfkabckkl", "aaaabcdefghijjjjklmn"]
   for str in strs:
     max = maxOfPalindrome(str)
     print(str, "maxOfPalindrome:", max)
@@ -53,6 +53,8 @@ def maxOfPalindrome(str):
 
     # 探索完成
     max = (right - left + 1) if (right - left + 1) > max else max
+    if max >= (strLen - right - 1):
+      return max # 当后面的字符串数量少于最大回文个数时，提前跳出循环
 
     left = right
     right += 1
