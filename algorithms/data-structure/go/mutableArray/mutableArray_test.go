@@ -1,7 +1,11 @@
-package mutablearray_test
+package mutablearray
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestMutableArray(t *testing.T) {
-	t.Log("ABC")
+
+	var arrM MutableArray = MakeMutableArray(10)
+	t.Log(arrM)
 }
